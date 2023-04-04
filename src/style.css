@@ -1,0 +1,106 @@
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 40px auto 40px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+header {
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: lightblue;
+    padding: 5px;
+    text-align: center;
+}
+
+main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60px calc(100% - 60px);
+    padding-bottom: 15vh;
+}
+
+#menu {
+    background-color: lightskyblue;
+}
+
+footer {
+    height: 15vh;
+    width: 100%;
+    background-color: beige;
+
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu a {
+    display: block;
+    border: 1px solid gray;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.max-w-500px {
+    max-width: 500px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.gap-y-15 {
+    row-gap: 15px;
+}
+
+.item-feed {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    border: 1px solid black;
+}
+
+.amigo {
+    padding: 10px 30px;
+    border: 1px dashed gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}

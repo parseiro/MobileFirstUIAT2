@@ -1,9 +1,13 @@
-import './App.css'
+import './App.css';
+import {Feed} from "./Feed.jsx";
+import {MenuPrincipal} from "./MenuPrincipal.jsx";
 
 export default function App() {
   return (
-    <main>
-      React ⚛️ + Vite ⚡ + Replit 🌀
-    </main>
-  )
+    <>
+      <header>Facebook</header>
+      <MenuPrincipal/>
+      <Feed currentUserId={1}/>
+    </>
+  );
 }
