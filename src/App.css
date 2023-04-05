@@ -1,12 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 /** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}*/
+}
 
 header {
   background-color: #333;
@@ -50,9 +48,9 @@ nav ul li a {
 
 .amigo {
   padding: 10px 30px;
-  border: 1px dashed gray;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
+*/

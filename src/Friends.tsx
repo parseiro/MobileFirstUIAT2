@@ -1,6 +1,7 @@
 import React from "react";
 import {getFriendsOfUser, User} from "./UserService";
 import {FriendCard} from "./FriendCard";
+import {Paper} from "@mui/material";
 
 interface Props {
     currentUser: User;
@@ -9,9 +10,9 @@ interface Props {
 const FriendsWrapped = ({currentUser}: Props) => {
     const friends = getFriendsOfUser(currentUser.id);
     return (
-        <article className="item-feed">
-            <p className="text-center text-lg">Amigos</p>
-            <div className="flex flex-wrap justify-center">
+        <Paper className="item-feed">
+            <h2 className="text-center">Amigos</h2>
+            <div className="flex flex-wrap justify-center items-center gap-4">
                 {friends.map((friend) => (
                     <FriendCard
                         key={`${currentUser.id}-${friend.id}`}
@@ -20,7 +21,7 @@ const FriendsWrapped = ({currentUser}: Props) => {
                     />
                 ))}
             </div>
-        </article>
+        </Paper>
     );
 }
 

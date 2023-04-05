@@ -1,5 +1,6 @@
 import React from "react";
 import {commonFriends, getBestFriendBetweenTwoUsers, getUserAvatarUrl, User} from "./UserService";
+import {Button, Card} from "@mui/material";
 
 interface Props {
     currentUser: User,
@@ -12,14 +13,14 @@ const SuggestedFriendWrapped = ({currentUser, suggestion}: Props) => {
     const svg = getUserAvatarUrl(suggestion);
 
     return (
-        <span className="amigo">
+        <Card className="amigo">
             <div className="w-20 h-20"
                  dangerouslySetInnerHTML={{__html: svg}}/>
             <p>{suggestion.name}</p>
             <p>Amigos em comum: {common.length}</p>
             {bestCommon && <p>Amigo em comum: {bestCommon.name}</p>}
-            <button type="button">Adicionar</button>
-      </span>
+            <Button variant="text" size="small">Adicionar</Button>
+      </Card>
     )
 }
 

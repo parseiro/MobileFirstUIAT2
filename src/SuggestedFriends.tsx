@@ -1,6 +1,7 @@
 import {getPotentialFriends, User} from "./UserService";
 import React from "react";
 import {SuggestedFriend} from "./SuggestedFriend";
+import {Paper} from "@mui/material";
 
 
 interface Props {
@@ -12,9 +13,9 @@ const SuggestedFriendsWrapped = ({currentUser}: Props) => {
     const suggestedFriends = getPotentialFriends(currentUser.id);
 
     return (
-        <article className="item-feed">
-            <p className="text-center text-lg">Sugestões de amigos</p>
-            <div className="flex flex-wrap justify-center">
+        <Paper>
+            <h2 className="text-center">Sugestões de amizade</h2>
+            <div className="flex flex-wrap justify-center items-center gap-4">
                 {suggestedFriends.map((suggestion) => (
                     <SuggestedFriend
                         key={`${currentUser.id}-${suggestion.id}`}
@@ -23,7 +24,7 @@ const SuggestedFriendsWrapped = ({currentUser}: Props) => {
                     />
                 ))}
             </div>
-        </article>
+        </Paper>
     );
 }
 

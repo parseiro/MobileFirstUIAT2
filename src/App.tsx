@@ -1,7 +1,7 @@
 import './App.css';
-import {Feed} from "./Feed.tsx";
-import {MainMenu} from "./MainMenu.tsx";
+import {Feed} from "./Feed";
 import {getUserById} from "./UserService";
+import ResponsiveAppBar from "./ResponsiveAppBar";
 
 export default function App() {
   const currentUserId = 1;
@@ -10,7 +10,7 @@ export default function App() {
   return (
     <>
       <header>Orkut</header>
-      <MainMenu/>
+      <ResponsiveAppBar/>
       <Feed currentUser={currentUser}/>
     </>
   );

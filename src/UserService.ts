@@ -65,8 +65,10 @@ export function getAllUsers(): User[] {
     return [...users];
 }
 
-export function getUserById(id: number): User | undefined {
-    return users.find(user => user.id === id);
+export function getUserById(id: number): User {
+    const user = users.find(user => user.id === id);
+    if (!user) throw new Error('User não encontrado');
+    return user;
 }
 
 export function getFriendsOfUser(userId: number): User[] {

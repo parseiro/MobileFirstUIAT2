@@ -1,5 +1,6 @@
 import {commonFriends, getUserAvatarUrl, User} from "./UserService";
 import React from "react";
+import {Card} from "@mui/material";
 
 interface Props {
     me: User,
@@ -11,11 +12,11 @@ const FriendCardWrapped = ({me, friend}: Props) => {
     const svg = getUserAvatarUrl(friend);
 
     return (
-        <div className="amigo">
+        <Card className="amigo">
             <div className="w-20 h-20" dangerouslySetInnerHTML={{__html: svg}} />
             <p>{friend.name}</p>
             <p>Amigos em comum: {common.length}</p>
-        </div>
+        </Card>
     );
 }
 
