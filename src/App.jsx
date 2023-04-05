@@ -1,13 +1,17 @@
 import './App.css';
-import {Feed} from "./Feed.jsx";
-import {MenuPrincipal} from "./MenuPrincipal.jsx";
+import {Feed} from "./Feed.tsx";
+import {MainMenu} from "./MainMenu.tsx";
+import {getUserById} from "./UserService";
 
 export default function App() {
+  const currentUserId = 1;
+  const currentUser = getUserById(currentUserId);
+
   return (
     <>
-      <header>Facebook</header>
-      <MenuPrincipal/>
-      <Feed currentUserId={1}/>
+      <header>Orkut</header>
+      <MainMenu/>
+      <Feed currentUser={currentUser}/>
     </>
   );
 }

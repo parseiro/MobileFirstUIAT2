@@ -7,7 +7,7 @@
 
 import {getUserById} from "./UserService";
 
-interface Post {
+export interface Post {
     postId: number;
     userId: number;
     date: string;
@@ -15,6 +15,7 @@ interface Post {
     title: string;
     text: string;
     likeList: {userId: number}[];
+    shares: number;
 }
 
 const posts: Post[] = [
@@ -32,6 +33,7 @@ const posts: Post[] = [
       {userId: 4},
       {userId: 5},
     ],
+    shares: 2,
   },
   {
     postId: 2,
@@ -47,17 +49,12 @@ const posts: Post[] = [
       {userId: 8},
       {userId: 10},
     ],
+    shares: 0,
   }
 ];
 
 export function getAllPosts(): Post[] {
-  return posts
-      .map(post => {
-        return {
-          ...post,
-          likes: post.likeList.length
-        };
-      });
+  return [...posts];
 }
 
 export function getPostsByUser(userId: number): Post[] {

@@ -1,4 +1,4 @@
-export function MenuPrincipal() {
+export function MainMenu() {
   return <div id="menu">
     <p>Menu principal</p>
     <a>Link1</a>
