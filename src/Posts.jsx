@@ -1,6 +1,6 @@
-import {PostElement} from "./PostElement";
+import {PostElement} from "./PostElement.jsx";
 import React from "react";
-import {getAllPosts} from "./PostService";
+import {getAllPosts} from "./PostService.js";
 import {Paper} from "@mui/material";
 
 const PostsWrapped = () => {

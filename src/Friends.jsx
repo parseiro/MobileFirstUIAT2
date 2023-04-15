@@ -1,13 +1,9 @@
 import React from "react";
-import {getFriendsOfUser, User} from "./UserService";
-import {FriendCard} from "./FriendCard";
+import {getFriendsOfUser} from "./UserService.js";
+import {FriendCard} from "./FriendCard.jsx";
 import {Paper} from "@mui/material";
 
-interface Props {
-    currentUser: User;
-}
-
-const FriendsWrapped = ({currentUser}: Props) => {
+const FriendsWrapped = ({currentUser}) => {
     const friends = getFriendsOfUser(currentUser.id);
     return (
         <Paper className="item-feed">

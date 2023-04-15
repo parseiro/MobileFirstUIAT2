@@ -5,20 +5,9 @@
 */
 
 
-import {getUserById} from "./UserService";
+import {getUserById} from "./UserService.js";
 
-export interface Post {
-    postId: number;
-    userId: number;
-    date: string;
-    image: string;
-    title: string;
-    text: string;
-    likeList: {userId: number}[];
-    shares: number;
-}
-
-const posts: Post[] = [
+const posts= [
   {
     postId: 1,
     userId: 1,
@@ -53,11 +42,11 @@ const posts: Post[] = [
   }
 ];
 
-export function getAllPosts(): Post[] {
+export function getAllPosts() {
   return [...posts];
 }
 
-export function getPostsByUser(userId: number): Post[] {
+export function getPostsByUser(userId)  {
   return posts
     .filter(post => post.userId === userId)
     .map(post => {
@@ -68,17 +57,9 @@ export function getPostsByUser(userId: number): Post[] {
     });
 }
 
-/* Every comment has a postId, a userId, a date, a text */
-interface Comment {
-  postId: number;
-    commentId: number;
-    autorId: number;
-    date: string;
-    text: string;
-}
 
 /* This is a list of comments. */
-const comments: Comment[] = [
+const comments = [
   {commentId: 1, postId: 1, autorId: 2, date: '15/5/2022', text: 'Coitadinho'},
   {commentId: 2, postId: 1, autorId: 3, date: '16/5/2022', text: 'Ele está num lugar' +
       ' melhor'},
@@ -88,11 +69,11 @@ const comments: Comment[] = [
   {commentId: 5, postId: 2, autorId: 1, date: '13/5/2022', text: 'Maravilhoso *_*'},
 ];
 
-export function getCommentsByPost(postId: number): Comment[] {
+export function getCommentsByPost(postId) {
   return comments.filter(comment => comment.postId === postId);
 }
 
-export function getAuthorByComment(commentId: number) {
+export function getAuthorByComment(commentId) {
   const comment = comments
       .find(comment => comment.commentId === commentId);
   if (comment == null)  return null

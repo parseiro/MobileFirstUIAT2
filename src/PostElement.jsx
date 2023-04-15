@@ -1,13 +1,8 @@
-import {getAuthorByComment, getCommentsByPost} from "./PostService";
-import {Post} from "./PostService";
+import {getAuthorByComment, getCommentsByPost} from "./PostService.js";
 import React from "react";
 import {Card} from "@mui/material";
 
-interface Props {
-    post: Post,
-}
-
-const PostElementWrapped = ({post}: Props) => {
+const PostElementWrapped = ({post}) => {
     const {postId, date, image, text, title, shares, likeList} = post;
     const likes = likeList.length;
 

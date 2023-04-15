@@ -1,13 +1,8 @@
-import {commonFriends, getUserAvatarUrl, User} from "./UserService";
+import {commonFriends, getUserAvatarUrl} from "./UserService.js";
 import React from "react";
 import {Card} from "@mui/material";
 
-interface Props {
-    me: User,
-    friend: User,
-}
-
-const FriendCardWrapped = ({me, friend}: Props) => {
+const FriendCardWrapped = ({me, friend}) => {
     const common = commonFriends(me.id, friend.id);
     const svg = getUserAvatarUrl(friend);
 

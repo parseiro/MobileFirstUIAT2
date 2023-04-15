@@ -1,14 +1,10 @@
-import {Friends} from "./Friends";
-import {User} from "./UserService";
-import {Posts} from "./Posts";
-import {SuggestedFriends} from "./SuggestedFriends";
-import { Divider } from "@mui/material";
+import {Friends} from "./Friends.jsx";
+import {Posts} from "./Posts.jsx";
+import {SuggestedFriends} from "./SuggestedFriends.jsx";
+import {Divider} from "@mui/material";
+import React from "react";
 
-interface Props {
-    currentUser: User;
-}
-
-export function Feed({currentUser}: Props) {
+export function Feed({currentUser}) {
     return (
         <div id="feed"
              className="flex flex-col align-center border gap-y-15">

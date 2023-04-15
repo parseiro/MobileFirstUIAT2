@@ -1,13 +1,12 @@
 import React from "react";
-import {commonFriends, getBestFriendBetweenTwoUsers, getUserAvatarUrl, User} from "./UserService";
+import {
+  commonFriends,
+  getBestFriendBetweenTwoUsers,
+  getUserAvatarUrl
+} from "./UserService";
 import {Button, Card} from "@mui/material";
 
-interface Props {
-    currentUser: User,
-    suggestion: User,
-}
-
-const SuggestedFriendWrapped = ({currentUser, suggestion}: Props) => {
+const SuggestedFriendWrapped = ({currentUser, suggestion}) => {
     const common = commonFriends(currentUser.id, suggestion.id);
     const bestCommon = getBestFriendBetweenTwoUsers(currentUser.id, suggestion.id);
     const svg = getUserAvatarUrl(suggestion);

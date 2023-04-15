@@ -3,13 +3,9 @@ import {lorelei} from '@dicebear/collection';
 
 /* This is a user service. Every user has an ID and a name. */
 
-export interface User {
-    id: number;
-    name: string;
-}
 
 // This function returns a random user avatar url
-export function getUserAvatarUrl(user: User): string {
+export function getUserAvatarUrl(user) {
     const avatar = createAvatar(lorelei, {
         seed: user.name,
         flip: Math.random() > 0.5,
@@ -19,7 +15,7 @@ export function getUserAvatarUrl(user: User): string {
 }
 
 // This is a list of users.
-const users: User[] = [
+const users = [
     {id: 1, name: "Pedro Vieira"},
     {id: 2, name: "João Silva"},
     {id: 3, name: "Maria Santos"},
@@ -32,7 +28,7 @@ const users: User[] = [
     {id: 10, name: "Catarina Martins"},
 ];
 
-const friends: number[][] = [
+const friends = [
     [1, 2],
     [1, 3],
     [1, 4],
@@ -61,38 +57,38 @@ const friends: number[][] = [
     [9, 10],
 ];
 
-export function getAllUsers(): User[] {
+export function getAllUsers() {
     return [...users];
 }
 
-export function getUserById(id: number): User {
+export function getUserById(id) {
     const user = users.find(user => user.id === id);
     if (!user) throw new Error('User não encontrado');
     return user;
 }
 
-export function getFriendsOfUser(userId: number): User[] {
+export function getFriendsOfUser(userId) {
     const friendsOfUser = friends
         .filter(friend => friend[0] === userId || friend[1] === userId)
         .map(friend => friend[0] === userId ? friend[1] : friend[0]);
     return users.filter(user => friendsOfUser.includes(user.id));
 }
 
-export function commonFriends(userId1: number, userId2: number): User[] {
+export function commonFriends(userId1, userId2) {
     const friendsOfUser1 = getFriendsOfUser(userId1);
     const friendsOfUser2 = getFriendsOfUser(userId2);
     return friendsOfUser1.filter(user => friendsOfUser2.includes(user));
 }
 
 // Returns other users who are not friends but who have common friends in common with the user
-export function getPotentialFriends(userId: number): User[] {
+export function getPotentialFriends(userId) {
     const friendsOfUser = getFriendsOfUser(userId);
     const potentialFriends = users.filter(user => !friendsOfUser.includes(user) && user.id !== userId);
     return potentialFriends.filter(user => commonFriends(userId, user.id).length > 0);
 }
 
 // Returns the friend in common between two users which has the most friends in common with the user
-export function getBestFriendBetweenTwoUsers(userId: number, userId2: number): User | null {
+export function getBestFriendBetweenTwoUsers(userId, userId2) {
     const commonFriendsOfUser = commonFriends(userId, userId2);
     if (commonFriendsOfUser.length === 0) return null;
     return commonFriendsOfUser.reduce((bestFriend, currentFriend) => {
